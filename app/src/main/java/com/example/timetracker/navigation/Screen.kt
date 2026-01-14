@@ -34,5 +34,13 @@ sealed class Screen(
         icon = Icons.Filled.Settings
     )
 
-    object NewLog : Screen("new log", "New Log")
+    object NewLog : Screen(
+        "new log",
+        "New Log"
+    )
+
+    object NewActivity : Screen(
+        "new activity",
+        "New Activity"
+    )
 }

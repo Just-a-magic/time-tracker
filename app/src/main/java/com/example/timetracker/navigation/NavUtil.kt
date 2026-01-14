@@ -7,6 +7,7 @@ fun getScreenByRoute(route: String?): Screen? {
         Screen.Statistics.route -> Screen.Statistics
         Screen.Settings.route -> Screen.Settings
         Screen.NewLog.route -> Screen.NewLog
+        Screen.NewActivity.route -> Screen.NewActivity
         else -> null
     }
 }

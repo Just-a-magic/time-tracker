@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.timetracker.ui.screens.ActivitiesScreen
 import com.example.timetracker.ui.screens.HomeScreen
+import com.example.timetracker.ui.screens.NewActivityScreen
 import com.example.timetracker.ui.screens.NewLogScreen
 import com.example.timetracker.ui.screens.SettingsScreen
 import com.example.timetracker.ui.screens.StatisticsScreen
@@ -26,7 +27,7 @@ fun NavGraph(
         }
 
         composable(Screen.Activities.route) {
-            ActivitiesScreen()
+            ActivitiesScreen(navController)
         }
 
         composable(Screen.Statistics.route) {
@@ -39,6 +40,10 @@ fun NavGraph(
 
         composable(Screen.NewLog.route) {
             NewLogScreen()
+        }
+
+        composable(Screen.NewActivity.route) {
+            NewActivityScreen()
         }
     }
 }
