@@ -39,10 +39,12 @@ fun BottomBar(
                 },
                 label = { Text(screen.title) },
                 icon = {
-                    Icon(
-                        imageVector = screen.icon,
-                        contentDescription = screen.title
-                    )
+                    screen.icon?.let {
+                        Icon(
+                            imageVector = it,
+                            contentDescription = screen.title
+                        )
+                    }
                 }
             )
         }
