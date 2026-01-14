@@ -11,36 +11,45 @@ import androidx.compose.material.icons.filled.Settings
 sealed class Screen(
     val route: String,
     val title: String,
-    val icon: ImageVector? = null
+    val icon: ImageVector? = null,
+    val showBottomBar: Boolean
 ) {
     object Home : Screen(
         "home",
         "Home",
-        icon = Icons.Filled.Home
+        icon = Icons.Filled.Home,
+        true
     )
     object Activities : Screen(
         "activities",
         "Activities",
-        icon = Icons.AutoMirrored.Filled.FormatListBulleted
+        icon = Icons.AutoMirrored.Filled.FormatListBulleted,
+        true
     )
     object Statistics : Screen(
         "statistics",
         "Statistics",
-        icon = Icons.Filled.DataUsage
+        icon = Icons.Filled.DataUsage,
+        true
     )
     object Settings : Screen(
         "settings",
         "Settings",
-        icon = Icons.Filled.Settings
+        icon = Icons.Filled.Settings,
+        true
     )
 
     object NewLog : Screen(
         "new log",
-        "New Log"
+        "New Log",
+        null,
+        false
     )
 
     object NewActivity : Screen(
         "new activity",
-        "New Activity"
+        "New Activity",
+        null,
+        false
     )
 }

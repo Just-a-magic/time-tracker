@@ -29,28 +29,16 @@ fun App() {
 
     val currentScreen = getScreenByRoute(currentRoute)
 
-    val showBottomBar = when (currentRoute) {
-        Screen.Home.route,
-        Screen.Activities.route,
-        Screen.Statistics.route,
-        Screen.Settings.route -> true
-        else -> false
-    }
-
     Scaffold(
         topBar = {
-            if (currentScreen != null) {
+            currentScreen?.let { screen ->
                 TopAppBar(
-                    title = {
-                        Text(currentScreen.title)
-                    },
+                    title = { Text(currentScreen.title) },
                     navigationIcon = {
-                        if (!showBottomBar) {
-                            IconButton(
-                                onClick = {
+                        if (!screen.showBottomBar) {
+                            IconButton(onClick = {
                                     navController.popBackStack()
-                                }
-                            ) {
+                                }) {
                                 Icon(
                                     imageVector = Icons.Filled.ArrowBackIosNew,
                                     contentDescription = "Back"
@@ -62,7 +50,7 @@ fun App() {
             }
         },
         bottomBar = {
-            if (showBottomBar) {
+            if (currentScreen?.showBottomBar == true) {
                 BottomBar(navController)
             }
         }
