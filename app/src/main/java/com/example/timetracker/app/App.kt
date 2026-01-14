@@ -2,6 +2,7 @@ package com.example.timetracker.app
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBackIosNew
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -26,7 +27,6 @@ fun App() {
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
-
     val currentScreen = getScreenByRoute(currentRoute)
 
     Scaffold(
@@ -42,6 +42,20 @@ fun App() {
                                 Icon(
                                     imageVector = Icons.Filled.ArrowBackIosNew,
                                     contentDescription = "Back"
+                                )
+                            }
+                        }
+                    },
+                    actions = {
+                        if (screen.showNewLogAction) {
+                            IconButton(
+                                onClick = {
+                                    navController.navigate(Screen.NewLog.route)
+                                }
+                            ) {
+                                Icon(
+                                    Icons.Filled.Add,
+                                    contentDescription = "New Log"
                                 )
                             }
                         }

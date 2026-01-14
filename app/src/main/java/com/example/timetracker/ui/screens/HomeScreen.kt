@@ -16,12 +16,6 @@ fun HomeScreen(navController: NavController) {
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        Button(
-            onClick = {
-                navController.navigate(Screen.NewLog.route)
-            }
-        ) {
-            Text(text = "New Log")
-        }
+        Text(text = "Home")
     }
 }
