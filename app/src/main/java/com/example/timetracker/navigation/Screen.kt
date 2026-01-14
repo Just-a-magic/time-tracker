@@ -13,22 +13,21 @@ sealed class Screen(
     val title: String,
     val icon: ImageVector? = null,
     val showBottomBar: Boolean,
-    val showNewLogAction: Boolean = false,
-    val showNewActivityAction: Boolean = false
+    val showAction: Boolean = false
 ) {
     object Home : Screen(
         route = "home",
         title = "Home",
         icon = Icons.Filled.Home,
         showBottomBar = true,
-        showNewLogAction = true
+        showAction = true
     )
     object Activities : Screen(
         route = "activities",
         title = "Activities",
         icon = Icons.AutoMirrored.Filled.FormatListBulleted,
         showBottomBar = true,
-        showNewActivityAction = true
+        showAction = true
     )
     object Statistics : Screen(
         route = "statistics",
@@ -44,13 +43,13 @@ sealed class Screen(
     )
 
     object NewLog : Screen(
-        route = "new log",
+        route = "new_log",
         title = "New Log",
         showBottomBar = false
     )
 
     object NewActivity : Screen(
-        route = "new activity",
+        route = "new_activity",
         title = "New Activity",
         showBottomBar = false
     )
