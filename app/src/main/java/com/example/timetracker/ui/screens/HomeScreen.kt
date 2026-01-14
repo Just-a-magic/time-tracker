@@ -11,7 +11,7 @@ import androidx.navigation.NavController
 import com.example.timetracker.navigation.Screen
 
 @Composable
-fun HomeScreen(navController: NavController) {
+fun HomeScreen(navController: NavController) {         //remove navController
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center

@@ -33,12 +33,12 @@ fun App() {
         topBar = {
             currentScreen?.let { screen ->
                 TopAppBar(
-                    title = { Text(currentScreen.title) },
+                    title = { Text(text = currentScreen.title) },
                     navigationIcon = {
                         if (!screen.showBottomBar) {
                             IconButton(onClick = {
-                                    navController.popBackStack()
-                                }) {
+                                navController.popBackStack()
+                            }) {
                                 Icon(
                                     imageVector = Icons.Filled.ArrowBackIosNew,
                                     contentDescription = "Back"
@@ -54,8 +54,20 @@ fun App() {
                                 }
                             ) {
                                 Icon(
-                                    Icons.Filled.Add,
+                                    imageVector = Icons.Filled.Add,
                                     contentDescription = "New Log"
+                                )
+                            }
+                        }
+                        if (screen.showNewActivityAction) {
+                            IconButton(
+                                onClick = {
+                                    navController.navigate(Screen.NewActivity.route)
+                                }
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Filled.Add,
+                                    contentDescription = "New Activity"
                                 )
                             }
                         }

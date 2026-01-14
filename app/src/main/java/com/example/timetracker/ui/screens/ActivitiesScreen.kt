@@ -12,18 +12,12 @@ import androidx.navigation.NavController
 import com.example.timetracker.navigation.Screen
 
 @Composable
-fun ActivitiesScreen(navController: NavController) {
+fun ActivitiesScreen(navController: NavController) { //remove navController
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
         Text(text = "Activities")
-
-        Button(onClick = {
-                navController.navigate(Screen.NewActivity.route)
-        } ) {
-            Text(text = "New Activity")
-        }
     }
 }
