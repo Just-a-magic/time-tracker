@@ -18,6 +18,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.timetracker.features.activity.ActivitiesViewModel
+import com.example.timetracker.features.log.LogsViewModel
 import com.example.timetracker.navigation.NavGraph
 import com.example.timetracker.navigation.Screen
 import com.example.timetracker.navigation.getScreenByRoute
@@ -28,6 +29,7 @@ import com.example.timetracker.ui.components.BottomBar
 fun App() {
     val navController = rememberNavController()
     val viewModel: ActivitiesViewModel = viewModel()
+    val logsViewModel: LogsViewModel = viewModel()
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
@@ -77,6 +79,17 @@ fun App() {
                                 }
                             }
 
+                            Screen.NewLog -> {
+                                IconButton(
+                                    onClick = {
+                                        logsViewModel.saveLog()
+                                        navController.popBackStack()
+                                    }
+                                ) {
+                                    Icon(Icons.Filled.Check, contentDescription = "Save log")
+                                }
+                            }
+
                             else -> Unit
                         }
                     }
@@ -92,6 +105,7 @@ fun App() {
         NavGraph(
             navController = navController,
             activitiesViewModel = viewModel,
+            logsViewModel = logsViewModel,
             modifier = Modifier.padding(padding)
         )
     }

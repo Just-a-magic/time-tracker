@@ -24,6 +24,6 @@ fun NewActivityScreen(viewModel: ActivitiesViewModel) {
             label = { Text("Activity name") },
             singleLine = true,
             modifier = Modifier.fillMaxWidth()
-            )
+        )
     }
 }
