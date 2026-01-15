@@ -14,14 +14,14 @@ import com.example.timetracker.features.activity.ActivityModel
 @Composable
 fun ActivityItem(
     activity: ActivityModel,
-    onLongClick: () -> Unit
+    onClickOrLongClick: () -> Unit
 ) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
             .combinedClickable(
-                onClick = {},
-                onLongClick = onLongClick
+                onClick = onClickOrLongClick,
+                onLongClick = onClickOrLongClick
             )
             .padding(16.dp)
     ) {

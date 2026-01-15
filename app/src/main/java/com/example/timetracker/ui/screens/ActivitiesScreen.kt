@@ -27,7 +27,7 @@ fun ActivitiesScreen(viewModel: ActivitiesViewModel) {
             items(viewModel.activities) { activity ->
                 ActivityItem(
                     activity = activity,
-                    onLongClick = {
+                    onClickOrLongClick = {
                         viewModel.selectActivity(activity)
                     }
                 )
