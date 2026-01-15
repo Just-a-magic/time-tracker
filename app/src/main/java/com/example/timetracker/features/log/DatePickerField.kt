@@ -15,8 +15,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import java.time.ZoneId
 import java.time.Instant
+import java.time.ZoneId
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -29,6 +29,7 @@ fun DatePickerField(
     if (showPicker) {
         DatePickerDialog(
             onDismissRequest = { showPicker = false },
+
             confirmButton = {
                 TextButton(onClick = {
                     datePickerState.selectedDateMillis?.let {
@@ -40,6 +41,14 @@ fun DatePickerField(
                     showPicker = false
                 }) {
                     Text("OK")
+                }
+            },
+
+            dismissButton = {
+                TextButton(
+                    onClick = { showPicker = false }
+                ) {
+                    Text("Cancel")
                 }
             }
         ) {
