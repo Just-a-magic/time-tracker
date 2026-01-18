@@ -28,7 +28,7 @@ import com.example.timetracker.ui.components.BottomBar
 @Composable
 fun App() {
     val navController = rememberNavController()
-    val viewModel: ActivitiesViewModel = viewModel()
+    val activitiesViewModel: ActivitiesViewModel = viewModel()
     val logsViewModel: LogsViewModel = viewModel()
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -72,7 +72,7 @@ fun App() {
 
                             Screen.NewActivity -> {
                                 IconButton(onClick = {
-                                    viewModel.addActivity(viewModel.tempName)
+                                    activitiesViewModel.addActivity(activitiesViewModel.tempName)
                                     navController.popBackStack()
                                 }) {
                                     Icon(Icons.Filled.Check, contentDescription = "Save")
@@ -104,7 +104,7 @@ fun App() {
     ) { padding ->
         NavGraph(
             navController = navController,
-            activitiesViewModel = viewModel,
+            activitiesViewModel = activitiesViewModel,
             logsViewModel = logsViewModel,
             modifier = Modifier.padding(padding)
         )
