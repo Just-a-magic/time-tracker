@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">TimeTracker</string>
+    <string name="app_name" translatable="false">Time Tracker</string>
+
 </resources>
